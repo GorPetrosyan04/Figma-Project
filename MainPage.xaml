@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Google_Tv_App.Components"
+             x:Class="Google_Tv_App.MainPage" HeightRequest="400">
+
+    <AbsoluteLayout Padding="0" Margin="0">
+
+        <Grid ZIndex="9999" Opacity="0.35" IsVisible="false"
+              AbsoluteLayout.LayoutBounds="0,0,960,484"
+              RowDefinitions="24,436,24"
+              Padding="0" Margin="0"
+              ColumnDefinitions="38,52,52,52,52,52,52,52,52,52,52,52,52,38"
+              RowSpacing="0" ColumnSpacing="20">
+
+            <Border Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" HorizontalOptions="Start" WidthRequest="58" BackgroundColor="Green"></Border>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" CornerRadius="0" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="3" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="4" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="5" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="6" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="7" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="8" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="9" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="10" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="11" BackgroundColor="DarkRed"></Frame>
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="12" BackgroundColor="DarkRed"></Frame>
+            <Border Grid.Row="0" Grid.RowSpan="3" Grid.Column="13" HorizontalOptions="End" WidthRequest="58" BackgroundColor="Green"></Border>
+
+            <Label x:Name="DisplayInfo" Grid.Row="1" Grid.ColumnSpan="14">Text</Label>
+        </Grid>
+
+        <ScrollView x:Name="MainScrollView" Grid.Row="0" AbsoluteLayout.LayoutBounds="0,0,960,540" Orientation="Vertical">
+            <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="40" Padding="0,24,0,0">
+
+                <HorizontalStackLayout Spacing="10" Grid.Row="0" Margin="58,0,0,0" Padding="0,8,0,0" BackgroundColor="Black">
+                    <Button Text="Home" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnMainPageClicked" TextColor="White"/>
+                    <Button Text="Categories" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnFavoritesClicked" TextColor="White"/>
+                    <Button x:Name="PressedButton" Text="Movies" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnMainPageClicked" TextColor="White" />
+                    <Button Text="Shows" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnFavoritesClicked" TextColor="White"/>
+                    <Button Text="Favorites" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnFavoritesClicked" TextColor="White"/>
+                    <SearchBar x:Name="searchBar"
+                               SearchCommand="{Binding PerformSearch}"
+                               SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
+                    <ListView x:Name="searchResults"
+                              ItemsSource="{Binding SearchResults}" />
+                </HorizontalStackLayout>
+
+                <ScrollView Orientation="Horizontal" Grid.Row="1" Margin="58,0,0,0">
+                    <HorizontalStackLayout Spacing="32" Padding="20,10,10,10" HorizontalOptions="Start">
+
+                        <controls:Contents />
+
+                        <controls:Contents />
+
+                        <controls:Contents />
+
+                        <controls:Contents />
+
+                        <Border IsVisible="False" Stroke="#E3E2E6" StrokeThickness="4" StrokeShape="RoundRectangle 12,12,12,12" WidthRequest="196">
+                            <ImageButton Source="superpuppy.png" WidthRequest="406" ></ImageButton>
+                        </Border>
+                        <ImageButton IsVisible="False" Source="power_sisters.png" WidthRequest="406" ></ImageButton>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <Grid Grid.Row="2" Margin="48,32,48,0" WidthRequest="844" HeightRequest="120" BackgroundColor="Black" VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <HorizontalStackLayout Spacing="10" Grid.Row="1">
+                        <Button Text="Home Best One" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnMainPageClicked" />
+                        <Button Text="Home" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnMainPageClicked" />
+                        <Button Text="Favorites" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnFavoritesClicked" />
+                    </HorizontalStackLayout>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="48,32,48,0" WidthRequest="844" HeightRequest="120" BackgroundColor="LightGray" VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <HorizontalStackLayout Spacing="10" Grid.Row="1">
+                        <Button Text="Home Best One" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnMainPageClicked" />
+                        <Button Text="Home" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnMainPageClicked" />
+                        <Button Text="Favorites" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="OnFavoritesClicked" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+
+    </AbsoluteLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="ImageButton">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="AliceBlue" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor" Value="LightGray"/>
+                                    <Setter Property="BorderWidth" Value="10"></Setter>
+                                    <Setter Property="Scale" Value="1.1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Test">
+
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                                    <Setter Property="BorderColor" Value="Transparent"></Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="AliceBlue" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                                    <Setter Property="BorderColor" Value="#E3E2E6" />
+                                    <Setter Property="BorderWidth" Value="3"></Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Test">
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</ContentPage>
